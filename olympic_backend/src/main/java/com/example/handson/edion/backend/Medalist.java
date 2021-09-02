@@ -1,4 +1,4 @@
-package com.example.handson.edion;
+package com.example.handson.edion.backend;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

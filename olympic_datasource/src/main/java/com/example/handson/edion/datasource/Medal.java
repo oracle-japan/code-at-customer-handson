@@ -1,5 +1,5 @@
 
-package com.example.handson.edion;
+package com.example.handson.edion.datasource;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
