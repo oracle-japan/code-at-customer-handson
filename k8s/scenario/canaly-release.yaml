@@ -14,8 +14,8 @@ spec:
     - destination:
         host: backend-app
         subset: v2
-      weight: 10
+      weight: 15
     - destination:
         host: backend-app
         subset: v3
-      weight: 10
+      weight: 5
