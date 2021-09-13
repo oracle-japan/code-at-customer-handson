@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: frontend-app
   labels:
-    app: frontend
+    app: frontend-app
     version: v1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: frontend-app
       version: v1
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-app
         version: v1
     spec:
       containers:
-      - name: frontend
+      - name: frontend-app
         image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app
         ports:
         - containerPort: 8082
@@ -33,7 +33,7 @@ spec:
     port: 8082
     targetPort: 8082
   selector:
-    app: frontend
+    app: frontend-app
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
