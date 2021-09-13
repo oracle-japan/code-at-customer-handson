@@ -4,6 +4,8 @@ FROM maven:3.6-jdk-11 as build
 
 WORKDIR /helidon
 
+ARG SERVICE_VERSION=V1
+
 # Create a first layer to cache the "Maven World" in the local repository.
 # Incremental docker builds will always resume after that, unless you update
 # the pom
@@ -24,7 +26,8 @@ WORKDIR /helidon
 COPY --from=build /helidon/target/olympic_backend.jar ./
 COPY --from=build /helidon/target/libs ./libs
 
-ENV SERVICE_VERSION=V3
+ARG SERVICE_VERSION=V1
+ENV SERVICE_VERSION=${SERVICE_VERSION}
 
 CMD ["java", "-jar", "olympic_backend.jar"]
 
