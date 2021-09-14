@@ -130,7 +130,7 @@ docker login kix.ocir.io
 ```
 ***コマンド結果***
 ```sh
-Username (axcze8ubggrb/oracleidentitycloudservice/yutaka.ichikawa@oracle.com): 
+Username (xxxxxxxxx/oracleidentitycloudservice/xxxxx.xxxxx@xxxxx.com): 
 Password: 
 WARNING! Your password will be stored unencrypted in /home/yutaka_ich/.docker/config.json.
 Configure a credential helper to remove this warning. See
