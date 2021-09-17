@@ -4,8 +4,6 @@ FROM maven:3.6-jdk-11 as build
 
 WORKDIR /helidon
 
-ARG SERVICE_VERSION=V1
-
 # Create a first layer to cache the "Maven World" in the local repository.
 # Incremental docker builds will always resume after that, unless you update
 # the pom
