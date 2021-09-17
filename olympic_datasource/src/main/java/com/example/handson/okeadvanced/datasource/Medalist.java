@@ -1,5 +1,5 @@
 
-package com.example.handson.edion.datasource;
+package com.example.handson.okeadvanced.datasource;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Access;
