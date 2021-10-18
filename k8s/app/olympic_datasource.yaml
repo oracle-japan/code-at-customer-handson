@@ -25,9 +25,9 @@ spec:
         - containerPort: 8080
         # env:
         # - name: tracing.data-upload-endpoint
-        #   value: https://aaaac7cn6krzmaaaaaaaaaavde.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        #   value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
         # - name: tracing.private-data-key
-        #   value: TOQXOGDUZEEUXHNSTKNK5BVSZBTF4Z63
+        #   value: XXXXXXXXXXXXXXXXXXXXXXXX
 ---
 apiVersion: v1
 kind: Service
