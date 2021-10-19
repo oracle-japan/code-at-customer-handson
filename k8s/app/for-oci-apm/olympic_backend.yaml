@@ -19,15 +19,14 @@ spec:
     spec:
       containers:
       - name: backend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v1
-        # image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v1-apm
+        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v1-apm
         ports:
         - containerPort: 8081
-        # env:
-        # - name: tracing.data-upload-endpoint
-        #   value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
-        # - name: tracing.private-data-key
-        #   value: XXXXXXXXXXXXXXXXXXXXXXXX
+        env:
+        - name: tracing.data-upload-endpoint
+          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        - name: tracing.private-data-key
+          value: XXXXXXXXXXXXXXXXXXXXXXXX
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -50,15 +49,14 @@ spec:
     spec:
       containers:
       - name: backend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v2
-        # image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v2-apm
+        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v2-apm
         ports:
         - containerPort: 8081
-        # env:
-        # - name: tracing.data-upload-endpoint
-        #   value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
-        # - name: tracing.private-data-key
-        #   value: XXXXXXXXXXXXXXXXXXXXXXXX
+        env:
+        - name: tracing.data-upload-endpoint
+          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        - name: tracing.private-data-key
+          value: XXXXXXXXXXXXXXXXXXXXXXXX
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -81,15 +79,14 @@ spec:
     spec:
       containers:
       - name: backend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v3
-        # image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v3-apm
+        image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-v3-apm
         ports:
         - containerPort: 8081
-        # env:
-        # - name: tracing.data-upload-endpoint
-        #   value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
-        # - name: tracing.private-data-key
-        #   value: XXXXXXXXXXXXXXXXXXXXXXXX
+        env:
+        - name: tracing.data-upload-endpoint
+          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        - name: tracing.private-data-key
+          value: XXXXXXXXXXXXXXXXXXXXXXXX
 ---
 apiVersion: v1
 kind: Service

@@ -19,15 +19,14 @@ spec:
     spec:
       containers:
       - name: datasource-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/datasource-app
-        # image: nrt.ocir.io/orasejapan/codeatcustomer/datasource-app-apm
+        image: nrt.ocir.io/orasejapan/codeatcustomer/datasource-app-apm
         ports:
         - containerPort: 8080
-        # env:
-        # - name: tracing.data-upload-endpoint
-        #   value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
-        # - name: tracing.private-data-key
-        #   value: XXXXXXXXXXXXXXXXXXXXXXXX
+        env:
+        - name: tracing.data-upload-endpoint
+          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        - name: tracing.private-data-key
+          value: XXXXXXXXXXXXXXXXXXXXXXXX
 ---
 apiVersion: v1
 kind: Service
