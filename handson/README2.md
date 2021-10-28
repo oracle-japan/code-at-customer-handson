@@ -350,7 +350,7 @@ https://oracle-japan.github.io/ocitutorials/cloud-native/functions-apigateway-fo
 Allow dynamic-group api_gw_grp_＜ご自身の苗字＞ to use functions-family in compartment hands-on-＜ご自身の苗字＞
 ```
 
-### 3.OCI API GatewayへのOracle Functionsデプロイと動作確認Permalink
+### 3.OCI API GatewayへのOracle Functionsデプロイと動作確認
 
 #### 3-1.OCI API Gatewayの作成
 
