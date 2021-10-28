@@ -350,7 +350,7 @@ https://oracle-japan.github.io/ocitutorials/cloud-native/functions-apigateway-fo
 Allow dynamic-group api_gw_grp_＜ご自身の苗字＞ to use functions-family in compartment hands-on-＜ご自身の苗字＞
 ```
 
-### 3.OCI API GatewayへのOracle Functionsデプロイと動作確認Permalink
+### 3.OCI API GatewayへのOracle Functionsデプロイと動作確認
 
 #### 3-1.OCI API Gatewayの作成
 
@@ -497,6 +497,106 @@ Day2のハンズオンは、以下リンク先のページに従って行いま�
 
 https://oracle-japan.github.io/ocitutorials/cloud-native/oke-for-advances/
 
+## 読み替え及び追加作業箇所
 
+### 6.OCI APMを利用してトレーシングしてみよう【オプション】
 
+#### 6-1 ポリシーの作成
 
+本ハンズオン環境では、このポリシー設定は不要です。
+
+# Day2ハンズオン 削除処理
+
+## 1-1 ロードバランサの削除
+
+CloudShellで以下のコマンドを実行します。
+
+```sh
+kubectl delete service istio-ingressgateway -n istio-system
+```
+コマンド結果
+```sh
+service "istio-ingressgateway" deleted
+```
+
+## 1-2 Kubernetesクラスタの削除
+
+画面左上にあるハンバーガーメニューをクリックして、「開発者サービス」-「Kubernetesクラスタ(OKE)」を選択します。
+
+![Kubernetesクラスタの削除 1](images/2-059.png)
+
+リストにある「cluster1」の右端にあるプルダウンメニューから「削除」を選択します。
+
+![Kubernetesクラスタの削除 2](images/2-060.png)
+
+「cluster1」と入力して、「削除」ボタンをクリックします。
+
+![Kubernetesクラスタの削除 3](images/2-061.png)
+
+数分かかります。完全にKubernetesが削除されてから次のVCN削除を行ってください。
+
+## 1-3 仮想クラウド・ネットワークの削除
+
+画面左上にあるハンバーガーメニューをクリックして、「ネットワークキング」-「仮想クラウド・ネットワーク」を選択します。
+
+![仮想クラウド・ネットワークの削除 1](images/2-055.png)
+
+リストにあるVCNの右端にあるプルダウンメニューから「終了」を選択します。
+
+![仮想クラウド・ネットワークの削除 2](images/2-062.png)
+
+「すべて終了」ボタンをクリックします。
+
+![仮想クラウド・ネットワークの削除 3](images/2-057.png)
+
+「閉じる」ボタンをクリックします。
+
+![仮想クラウド・ネットワークの削除 4](images/2-058.png)
+
+仮想クラウド・ネットワークの削除は完了です。
+
+## 1-4 動的グループとポリシーの削除
+
+この作業は「5.OCI MonitoringのメトリクスをGrafanaダッシュボードを利用して確認してみよう【オプション】」を実施した場合に行ってください。  
+画面左上にあるハンバーガーメニューをクリックして、「アイデンティティとセキュリティ」-「動的グループ」を選択します。
+
+![動的グループの削除 1](images/2-038.png)
+
+リストにあるま「grafana_dynamic_group_＜ご自身の苗字＞」の右端にあるプルダウンメニューから「削除」を選択します。
+
+![動的グループの削除 2](images/2-063.png)
+
+「削除」ボタンをクリックします。
+
+![動的グループの削除 4](images/2-064.png)
+
+「ポリシー」を選択します。
+
+![ポリシーの削除 1](images/2-041.png)
+
+リストから「grafana_policy」の右端にあるプルダウンメニューから「削除」を選択します。
+
+![ポリシーの削除 2](images/2-065.png)
+
+「削除」ボタンをクリックします。
+
+![ポリシーの削除 3](images/2-066.png)
+
+動的グループとポリシーの削除は完了です。
+
+## 1-5 APMドメインの削除
+
+この作業は「6.OCI APMを利用してトレーシングしてみよう【オプション】」を実施した場合に行ってください。  
+画面左上にあるハンバーガーメニューをクリックして、「監視および管理」-「管理」を選択します。
+
+![APMドメインの削除 1](images/2-067.png)
+
+リストにある「oke-handson-apm」の右端にあるプルダウンメニューから「APMドメインの削除」を選択します。
+
+![APMドメインの削除 2](images/2-068.png)
+
+「oke-handson-apm」と入力して、「削除」ボタンをクリックします。
+
+![APMドメインの削除 2](images/2-069.png)
+
+APMドメインの削除は完了です。
