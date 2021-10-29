@@ -112,7 +112,7 @@ fn update context registry nrt.ocir.io/[オブジェクト・ストレージ・�
 ```
 ***コマンド結果***
 ```sh
-Current context updated registry with kix.ocir.io/<object-storage-namespace>/functions-handson-<ご自身の苗字>
+Current context updated registry with nrt.ocir.io/<object-storage-namespace>/functions-handson-<ご自身の苗字>
 ```
 
 以下のコマンドを実行し、Oracle Functionsで使用するprofile名を設定します。
@@ -204,7 +204,10 @@ Functionsで利用する仮想クラウド・ネットワークを作成しま�
 
 ![VCNの作成 10](images/2-032.png)
 
-作成したVCNがリストにあることを確認します。
+以下VCNができていることを確認します。
+
+* パブリック・サブネット-Oracle Functions Handson
+* プライベート・サブネット-Oracle Functions Handson
 
 ![VCNの作成 11](images/2-025.png)
 
@@ -329,16 +332,16 @@ https://oracle-japan.github.io/ocitutorials/cloud-native/functions-apigateway-fo
 
 ## 読み替え及び追加作業箇所
 
-### 2.OCI API Gatewayプロビジョニングの事前準備
+### 【読み替え箇所】2.OCI API Gatewayプロビジョニングの事前準備【】
 
-#### 2-1.イングレス・ルールの追加
+#### 【読み替え箇所】2-1.イングレス・ルールの追加
 
 イングレスルール追加は、以下に読み替えてください。
 
 * コンパートメント: hands-on-＜ご自身の苗字＞
 * VCN: Oracle Functions Handson
 
-#### 2-2.動的ポリシーの作成
+#### 【読み替え箇所】2-2.動的ポリシーの作成
 
 名前：api_gw_grp_＜ご自身の苗字＞
 
@@ -350,9 +353,9 @@ https://oracle-japan.github.io/ocitutorials/cloud-native/functions-apigateway-fo
 Allow dynamic-group api_gw_grp_＜ご自身の苗字＞ to use functions-family in compartment hands-on-＜ご自身の苗字＞
 ```
 
-### 3.OCI API GatewayへのOracle Functionsデプロイと動作確認
+### 【読み替え箇所】3.OCI API GatewayへのOracle Functionsデプロイと動作確認
 
-#### 3-1.OCI API Gatewayの作成
+#### 【読み替え箇所】3-1.OCI API Gatewayの作成
 
 HANDS-ON-＜ご自身の苗字＞の仮想クラウド・ネットワーク：Oracle Functions Handson
 
@@ -360,9 +363,14 @@ HANDS-ON-＜ご自身の苗字＞のサブネット：パブリック・サブ�
 
 ![OCI API Gatewayの作成](images/2-034.png)
 
-#### 3-3.動作確認
+#### 【読み替え箇所】3-3.動作確認
 
 ここでは最初に、事前準備で作成したコンピュートインスタンスにログインしてから進めてください。
+一度ホームディレクトリに戻ってから実行します。
+
+```sh
+cd ~
+```
 
 ```sh
 ssh -i ./ssh-key-2021-xx-xx.key opc@xx.xx.xx.xx
@@ -493,6 +501,68 @@ Functionsの削除は完了です。
 
 仮想クラウド・ネットワークの削除は完了です。
 
+## 2-6 認証トークンの削除
+
+画面右上の人型のマークが表示されている箇所をクリックします。さらに、展開されたメニューのユーザー名部分をクリックします。
+
+![認証トークンの削除 1](images/2-005.png)
+
+画面左下にある「認証トークン」をクリックします。
+
+![認証トークンの削除 2](images/2-006.png)
+
+リストにある「This token is used for Oracle Functions Handson」の右端にあるプルダウンメニューから「削除」を選択します。
+
+![認証トークンの削除 3](images/2-070.png)
+
+「削除」ボタンをクリックします。
+
+![認証トークンの削除 4](images/2-071.png)
+
+認証トークンの削除は完了です。
+
+## 2-7 コンテナレジストリ（リポジトリ）の削除
+
+ご自身のコンテナレジストリのリポジトリを削除します。  
+画面左上にあるハンバーガーメニューをクリックして、「開発者サービス」-「コンテナ・レジストリ」を選択します。
+
+![コンテナレジストリ（リポジトリ）の削除 1](images/2-072.png)
+
+ルートコンパートメントを選択します。
+
+![コンテナレジストリ（リポジトリ）の削除 2](images/2-073.png)
+
+「functions-handson-＜ご自身の苗字＞/fn-generate-qrcode」を選択して、プルダウンメニューから「リポジトリの削除」を選択します。
+
+![コンテナレジストリ（リポジトリ）の削除 3](images/2-074.png)
+
+「削除」ボタンをクリックします。
+
+![コンテナレジストリ（リポジトリ）の削除 4](images/2-075.png)
+
+コンテナレジストリ（リポジトリ）の削除は完了です。
+
+## 2-8 資材の削除
+
+git cloneやダウンロードした資材を削除します。
+
+```sh
+cd ~
+```
+```sh
+ls
+```
+コマンド結果
+```sh
+apigw-functions-handson  ssh-key-2021-10-29.key
+```
+
+```sh
+rm -rf ./*
+```
+
+資材の削除は完了です。
+
 # Day2ハンズオン
 
 Day2のハンズオンは、以下リンク先のページに従って行いますので、ページにアクセスしてください。
@@ -501,9 +571,25 @@ https://oracle-japan.github.io/ocitutorials/cloud-native/oke-for-advances/
 
 ## 読み替え及び追加作業箇所
 
-### 6.OCI APMを利用してトレーシングしてみよう【オプション】
+### 【読み替え箇所】5.OCI MonitoringのメトリクスをGrafanaダッシュボードを利用して確認してみよう【オプション】
 
-#### 6-1 ポリシーの作成
+#### 【読み替え箇所】5-1 動的グループとポリシーの設定
+
+動的グループの名前と説明は、以下にします。
+
+名前: grafana_dynamic_group_＜ご自身の苗字＞
+
+説明: grafana_dynamic_group_＜ご自身の苗字＞
+
+#### 【読み替え箇所】5-3 Grafanaダッシュボードの確認
+
+リージョンを変更する必要があります。
+
+Default Region: ap-tokyo-1
+
+### 【読み替え箇所】6.OCI APMを利用してトレーシングしてみよう【オプション】
+
+#### 【読み替え箇所】6-1 ポリシーの作成
 
 本ハンズオン環境では、このポリシー設定は不要です。
 
@@ -604,3 +690,24 @@ service "istio-ingressgateway" deleted
 ![APMドメインの削除 2](images/2-069.png)
 
 APMドメインの削除は完了です。
+
+## 1-6 資材の削除
+
+git cloneやダウンロードした資材を削除します。
+
+```sh
+cd ~
+```
+```sh
+ls
+```
+コマンド結果
+```sh
+code-at-customer-handson  istio-1.11.0
+```
+
+```sh
+rm -rf ./*
+```
+
+資材の削除は完了です。
