@@ -78,7 +78,7 @@ fn list context
 ***コマンド結果***
 ```sh
 CURRENT NAME            PROVIDER        API URL                                                 REGISTRY
-*       ap-osaka-1      oracle-cs       https://functions.ap-osaka-1.oci.oraclecloud.com        kix.ocir.io/axcze8ubggrb/functions-handson
+*       ap-osaka-1      oracle-cs       https://functions.ap-osaka-1.oci.oraclecloud.com        kix.ocir.io/xxxxxxxxxxxx/functions-handson
         default         oracle-cs
 ```
 
