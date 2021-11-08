@@ -550,13 +550,17 @@ Functionsの削除は完了です。
 
 ![Object Storageの削除 1](images/2-076.png)
 
+コンパートメントが「hands-on-<ご自身の苗字>」になっていることを確認します。なっていない場合は、プルダウンメニューから選択してください。
+
+![Object Storageの削除 2](images/2-017.png)
+
 リストにあるバケット(名前はランダムに作成されています)の右端にあるプルダウンメニューから「削除」を選択します。
 
-![Object Storageの削除 2](images/2-077.png)
+![Object Storageの削除 3](images/2-077.png)
 
 バケット名を入力し、「削除」をクリックします。
 
-![Object Storageの削除 3](images/2-078.png)
+![Object Storageの削除 4](images/2-078.png)
 
 Object Storage(API Gatewayのログファイル格納場所)の削除は完了です。
 
