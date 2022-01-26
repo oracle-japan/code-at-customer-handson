@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+  labels:
+    app: frontend-app
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+        version: v1
+    spec:
+      containers:
+      - name: frontend-app
+        image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app-apm
+        ports:
+        - containerPort: 8082
+        env:
+        - name: tracing.data-upload-endpoint
+          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+        - name: tracing.private-data-key
+          value: XXXXXXXXXXXXXXXXXXXXXXXX
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-app
+spec:
+  ports:
+  - name: http
+    port: 8082
+    targetPort: 8082
+  selector:
+    app: frontend-app
