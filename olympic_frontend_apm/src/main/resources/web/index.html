@@ -44,7 +44,16 @@
 
     <!-- This is where you would add any app specific styling -->
     <link rel="stylesheet" href="css/app.css" type="text/css"/>
-    <script src="js/apm.js"></script>
+    <script>
+      window.apmrum = (window.apmrum || {}); 
+      window.apmrum.serviceName='oke-helidon-demo-frontend-UI';
+      window.apmrum.webApplication='OracleJetApp';
+      window.apmrum.ociDataUploadEndpoint='https://xxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com';
+      window.apmrum.OracleAPMPublicDataKey='<your-public-data-key>';
+      window.apmrum.traceSupportingEndpoints =  [
+        { headers: [ 'APM' ], hostPattern: '.*' },
+      ]; 
+    </script>
     <script async crossorigin="anonymous" src="https://xxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com/static/jslib/apmrum.min.js"></script>
   </head>
   <body class="oj-web-applayout-body">
