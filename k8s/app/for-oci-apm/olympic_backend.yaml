@@ -24,9 +24,15 @@ spec:
         - containerPort: 8081
         env:
         - name: tracing.data-upload-endpoint
-          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: endpoint
         - name: tracing.private-data-key
-          value: XXXXXXXXXXXXXXXXXXXXXXXX
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: private-key
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -54,9 +60,15 @@ spec:
         - containerPort: 8081
         env:
         - name: tracing.data-upload-endpoint
-          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: endpoint
         - name: tracing.private-data-key
-          value: XXXXXXXXXXXXXXXXXXXXXXXX
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: private-key
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -84,9 +96,15 @@ spec:
         - containerPort: 8081
         env:
         - name: tracing.data-upload-endpoint
-          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: endpoint
         - name: tracing.private-data-key
-          value: XXXXXXXXXXXXXXXXXXXXXXXX
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: private-key
 ---
 apiVersion: v1
 kind: Service
