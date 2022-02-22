@@ -6,7 +6,7 @@ metadata:
     app: frontend-app
     version: v1
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: frontend-app
@@ -19,41 +19,30 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app-apm
+        image: iad.ocir.io/orasejapan/frontend-app-apm
         ports:
         - containerPort: 8082
         env:
         - name: tracing.data-upload-endpoint
-          value: https://xxxxxxxxxxxxxxxx.apm-agt.us-ashburn-1.oci.oraclecloud.com
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: endpoint
         - name: tracing.private-data-key
-          value: XXXXXXXXXXXXXXXXXXXXXXXX
+          valueFrom:
+            secretKeyRef:
+              name: apm-secret
+              key: private-key
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: frontend-app
 spec:
+  type: LoadBalancer
   ports:
-  - name: http
-    port: 8082
+  - port: 80
     targetPort: 8082
+    protocol: TCP
   selector:
     app: frontend-app
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: gateway
-  annotations:
-    kubernetes.io/ingress.class: "istio"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-app
-            port:
-              number: 8082
