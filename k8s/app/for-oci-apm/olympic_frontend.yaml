@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app-apm
+        image: iad.ocir.io/orasejapan/frontend-app-apm
         ports:
         - containerPort: 8082
         env:
