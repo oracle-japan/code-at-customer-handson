@@ -128,14 +128,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>oci</id>
-            <name>OCI Object Store</name>
-            <url>https://objectstorage.us-ashburn-1.oraclecloud.com/n/idhph4hmky92/b/prod-agent-binaries/o</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>
