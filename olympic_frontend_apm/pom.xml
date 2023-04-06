@@ -49,22 +49,20 @@
         <dependency>
             <groupId>com.oracle.apm.agent.java</groupId>
             <artifactId>apm-java-agent-helidon</artifactId>
-            <version>RELEASE</version>
+            <version>[1.0.1389,)</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.apm.agent.java</groupId>
             <artifactId>apm-java-agent-tracer</artifactId>
-            <version>RELEASE</version>
+            <version>[1.5.2118,)</version>
+            <exclusions>
+              <exclusion>
+                   <groupId>com.oracle.apm.deepdive</groupId>
+                   <artifactId>apm-agent-lib-deepdive</artifactId>
+              </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>oci</id>
-            <name>OCI Object Store</name>
-            <url>https://objectstorage.us-ashburn-1.oraclecloud.com/n/idhph4hmky92/b/prod-agent-binaries/o</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
