@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.helidon.applications</groupId>
         <artifactId>helidon-mp</artifactId>
-        <version>2.3.2</version>
+        <version>3.2.7</version>
         <relativePath />
     </parent>
     <groupId>com.example.handson.okeadvaned.datasource</groupId>
@@ -69,6 +69,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+            <version>2.2.224</version>
         </dependency>
         <dependency>
             <groupId>io.helidon.integrations.cdi</groupId>
@@ -110,21 +111,19 @@
             <artifactId>hamcrest-all</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency> 
+            <groupId>io.helidon.microprofile.tracing</groupId> 
+            <artifactId>helidon-microprofile-tracing</artifactId> 
+        </dependency>
         <dependency>
             <groupId>com.oracle.apm.agent.java</groupId>
-            <artifactId>apm-java-agent-helidon</artifactId>
-            <version>[1.0.1389,)</version>
+            <artifactId>apm-java-agent-helidon3</artifactId>
+            <version>[1.8.3326,)</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.apm.agent.java</groupId>
             <artifactId>apm-java-agent-tracer</artifactId>
-            <version>[1.5.2118,)</version>
-            <exclusions>
-              <exclusion>
-                   <groupId>com.oracle.apm.deepdive</groupId>
-                   <artifactId>apm-agent-lib-deepdive</artifactId>
-              </exclusion>
-            </exclusions>
+            <version>[1.8.3326,)</version>
         </dependency>
     </dependencies>
 

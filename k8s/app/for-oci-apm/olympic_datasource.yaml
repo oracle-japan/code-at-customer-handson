@@ -18,21 +18,21 @@ spec:
         version: v1
     spec:
       containers:
-      - name: datasource-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/datasource-app-apm
-        ports:
-        - containerPort: 8080
-        env:
-        - name: tracing.data-upload-endpoint
-          valueFrom:
-            secretKeyRef:
-              name: apm-secret
-              key: endpoint
-        - name: tracing.private-data-key
-          valueFrom:
-            secretKeyRef:
-              name: apm-secret
-              key: private-key
+        - name: datasource-app
+          image: nrt.ocir.io/orasejapan/codeatcustomer/data-source-app:helidon4
+          ports:
+            - containerPort: 8080
+          env:
+            - name: tracing.data-upload-endpoint
+              valueFrom:
+                secretKeyRef:
+                  name: apm-secret
+                  key: endpoint
+            - name: tracing.private-data-key
+              valueFrom:
+                secretKeyRef:
+                  name: apm-secret
+                  key: private-key
 ---
 apiVersion: v1
 kind: Service
@@ -41,8 +41,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
+    - name: http
+      port: 8080
+      targetPort: 8080
   selector:
     app: datasource-app
