@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: backend-app
-          image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-apm:helidon4
+          image: nrt.ocir.io/orasejapan/codeatcustomer/backend-app-apm
           ports:
             - containerPort: 8081
           env:
