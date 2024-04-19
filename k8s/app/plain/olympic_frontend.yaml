@@ -18,10 +18,10 @@ spec:
         version: v1
     spec:
       containers:
-      - name: frontend-app
-        image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app
-        ports:
-        - containerPort: 8082
+        - name: frontend-app
+          image: nrt.ocir.io/orasejapan/codeatcustomer/frontend-app:helidon4
+          ports:
+            - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
@@ -29,9 +29,9 @@ metadata:
   name: frontend-app
 spec:
   ports:
-  - name: http
-    port: 8082
-    targetPort: 8082
+    - name: http
+      port: 8082
+      targetPort: 8082
   selector:
     app: frontend-app
 ---
@@ -43,12 +43,12 @@ metadata:
     kubernetes.io/ingress.class: "istio"
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-app
-            port:
-              number: 8082
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-app
+                port:
+                  number: 8082
